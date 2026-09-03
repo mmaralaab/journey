@@ -1,0 +1,26 @@
+body { /* it adds to the whole background*/
+    background-color:rgb(107, 188, 89);
+    font-size:20px;
+}
+
+p {
+    background-color:rgb(253, 230, 230);
+    color:rgba(29, 195, 255, 0.71);
+/* command and / is shortcut to add comment */
+    /*I am writing a comment, I can write a note here, this is not going to affect the final code
+    the border shhorthand proverty expects 3 values for the border-width, border-style, and border-color*/
+    border:50px dotted;
+    padding:50px; /*creates internal space around the elements*/
+
+    margin:50px; /*extrernal space for the elemtns*/
+
+}
+
+.banner {
+    background-color:rgb(255, 232, 59);
+    text-align:center;
+}
+
+img {
+    max-width:100%;
+}
