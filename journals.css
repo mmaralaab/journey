@@ -33,5 +33,9 @@ a {
     padding: 10px;
     border: 10px dashed rgb(0, 191, 255);
     text-align: center;
+
+.p {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
     
 }
