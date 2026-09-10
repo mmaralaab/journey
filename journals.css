@@ -1,19 +1,29 @@
+
+
 body {
-    background-color: black;
+    background-color: rgb(227, 254, 255);
 }
 
 h1 {
     color:white;
     background: rgba(173, 216, 230, 0.498);
-    border: 5px dotted rgb(117, 221, 255);
+    border: 5px dotted rgb(0, 191, 255);
     margin: 20px;
-    width: 600px;
     padding: 20px;
     text-align: center;
 }
+h2 {
+    color: rgb(74, 122, 255);
+    background-color:honeydew;
+    text-align: left;
+    margin: 10px;
+    padding: 5px;
+
+}
 p {
-    color: white;
+    color: rgb(0, 17, 87);
     padding: 20px;
     margin: 30px;
     text-align: left;
+    background-color: azure;
 }
