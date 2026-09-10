@@ -27,3 +27,11 @@ p {
     text-align: left;
     background-color: azure;
 }
+
+a {
+    background-color:rgba(173, 216, 230, 0.498);
+    padding: 10px;
+    border: 10px dashed rgb(0, 191, 255);
+    text-align: center;
+    
+}
