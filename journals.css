@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color:white;
+    background: rgba(173, 216, 230, 0.498);
+    border: 5px dotted rgb(117, 221, 255);
+    margin: 20px;
+    width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+p {
+    color: white;
+    padding: 20px;
+    margin: 30px;
+    text-align: left;
+}
