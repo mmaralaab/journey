@@ -1,3 +1,24 @@
 body {
-    background-color:#6ea576;
+    background-color:#0c0912;
+}
+
+h1 {
+    color: white;
+    background: rgba(255, 186, 196, 0.658);
+    margin: 30px;
+    width: 1000px;
+    padding: 30px;
+    border: 5px solid rgb(255, 223, 223);
+    text-align: center;
+}
+
+.world-image{
+    width: 200px; 
+    height: auto;
+    border: 5px solid rgb(255, 223, 223)
+}
+
+.image.link {
+    display: flex; 
+    justify-content: flex-end;
 }

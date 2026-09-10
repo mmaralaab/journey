@@ -1,0 +1,45 @@
+img {
+    max-width:100%;
+}
+
+.block {
+    background: lightblue;
+    margin: 10px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.inline {
+    background: lightgreen;
+    /* margin, padding, width, and height work inconsistently on inline elements and should probably be avoided */
+}
+
+/* inline-block combines the qualities of block and inline, allowing to apply margin, padding, width, and height to inline elements */
+.inline-block{
+    background: lightgrey;
+    display:inline-block;
+    margin: 20px;
+    padding:20px;
+    width: 100px;
+    height: 100px;
+}
+
+.content-box {
+    background: rgb(148, 255, 250);
+    width: 200px;
+    height: 200px;
+    padding: 50px;
+    border: 10px solid blue;
+    margin: 10px;
+}
+
+.border-box {
+    background: rgb(241, 194, 255);
+    width: 200px;
+    height: 200px;
+    padding: 50px;
+    border: 10px solid rgb(53, 0, 72);
+    margin: 10px;
+    box-sizing: border-box;
+}
