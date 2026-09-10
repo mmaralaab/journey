@@ -1,17 +1,21 @@
 body {
-    background-color:#0c0912;
+    /* background-color:#0c0912; */
+     background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgb(95, 15, 111) 100%);
+     background-size:100% 100vh;
+     height:2000px;
+     background-attachment: fixed;
 }
 
 .main-title {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 h1 {
-    color: white;
-    background: rgba(255, 186, 196, 0.658);
+    color: rgb(103, 6, 152);
+    background: rgba(255, 179, 251, 0.658);
     margin: 30px;
     width: 1000px;
     padding: 30px;
-    border: 5px solid rgb(255, 223, 223);
+    border: 5px solid rgb(103, 6, 152);
     text-align: center;
 }
 
@@ -21,7 +25,23 @@ h1 {
     /* border: 5px solid rgb(255, 223, 223) */
 }
 
- {
+.w1 {
+    position: absolute;
+    top: 200px;
+    right: 900px;
+}
+
+.w2 {
+    position: absolute;
+    top: 600px;
+    right: 700px;
+    
+}
+
+.w3 {
+    position: absolute; 
+    top: 350px;
+    right: 400px;
 
 }
 
