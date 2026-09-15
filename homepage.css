@@ -19,6 +19,12 @@ h1 {
     text-align: center;
 }
 
+.title{
+    position: absolute;
+    top: 50%;
+    right: 300px;
+}
+
 .world-image{ 
     width: 200px; 
     height: auto;
