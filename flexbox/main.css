@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+
+img {
+    max-width:100%;
+}
+
+
+/* 
+row flex box:
+    main-axis = horixontal (x)
+    cross-axis = vertical (y)
+
+column flexbox:
+    main-axis = vertical (y)
+    cross-axis = horizontal (x)
+*/
+
+
+.container {
+    background: lavender;
+    padding: 10px;
+    height: 600px;
+    display: flex;
+    /* by default, flexboxes will render in the row layout */
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* justify-content will align items along the main axis */
+    justify-content: space-evenly;
+
+    /* align-items will align items along the cross-axis, for non-wrapping flexboxes */
+
+    /* align-items: center; */
+
+    /* align-content will align items along the cross-axis, for wrapping flexboxes */
+
+    align-content: center;
+
+    gap: 20px;
+}
+
+.item {
+    background-color: skyblue;
+    padding: 10px;
+    border: 1px solid white; 
+    width: 200px;
+}
+
+.two-col{
+    background: lightblue;
+    padding: 10px;
+    display: flex;
+}
+
+.col{
+    background: lavenderblush;
+    border: 1px solid;
+    padding:10px;
+    width: 50%;
+}
