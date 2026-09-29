@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+
+img {
+    max-width:100%;
+}
+
+body{
+    background-color:rgb(185, 234, 255);
+      
+}
+#world {
+  position: relative;
+  width: 6000px;
+  height: 4000px;
+}
+
+.sky {
+    
+}
+
+.sun{
+    width: 90px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
+.moon{
+    width: 80px;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+
+.question {
+    width: 1000px;
+    height: auto;
+    position: absolute;
+    left: 1800px;
+    top: 2600px;
+}
+
+.question2 {
+    width: 1000px;
+    height: auto;
+    position: absolute;
+    left: 400px;
+    top: 3500px;
+}
+
+.clouds{
+    max-width: 300px;
+    height: auto;
+}
+
+.cloud1{
+    position:absolute;
+    left: 100px;
+    top: 100px;
+}
+
+.cloud2{
+    position:absolute;
+    left: 2750px;
+    top: 2900px;
+}
+
+.cloud3{
+    position:absolute;
+    left: 2450px;
+    top: 2400px;
+}
+
+.cloud4{
+    position:absolute;
+    left: 1400px;
+    top: 2500px;
+}
+
+.cloud5{
+    position:absolute;
+    left: 700px;
+    top: 800px;
+}
+
+.cloud6{
+    position:absolute;
+    left: 3000px;
+    top: 200px;
+}
+
+.cloud7{
+    position:absolute;
+    left: 3100px;
+    bottom: 200px;
+}
+
+.cloud8{
+    position:absolute;
+    right: 500px;
+    bottom: 200px;
+}
+
+.cloud9{
+    position:absolute;
+    right: 1000px;
+    bottom: 900px;
+}
+
+.cloud10{
+    position:absolute;
+    left: 1300px;
+    bottom: 650px;
+}
+
+.cloud11{
+    position: absolute;
+    left:100px;
+    bottom: 0px;
+}
+
+.cloud12{
+    position:absolute;
+    right:20px;
+    top:500px;
+}
+
+.cloud13{
+    position:absolute;
+    right:1000px;
+    top:130px;
+}
+
+.cloud14{
+    position:absolute;
+    left:1700px;
+    top:160px;
+}
+
+.cloud15{
+    position:absolute;
+    left:2500px;
+    top:700px;
+}
+
+.cloud16{
+    position:absolute;
+    left:4000px;
+    bottom: 600px;
+}
+
+.cloud17{
+    position:absolute;
+    left:100px;
+    bottom: 2000px;
+}
+
+.cloud18{
+    position:absolute;
+    left:400px;
+    bottom: 2200px;
+}
+
+
+
+
+/* .reveal{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hidden-text {
+    position: absolute;
+    top:100%;
+    left:0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgb(12, 73, 255);
+    color: white;
+    padding: 8px; 
+    border: 4px;
+
+}
+
+.reveal.active .hiddent-text{
+    opacity: 1;
+} */
+
+.text{
+    color: white;
+    position: absolute; 
+    right: 2730px;
+    top: 3060px;
+}
