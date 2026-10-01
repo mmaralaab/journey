@@ -44,7 +44,7 @@ body{
 }
 
 .question2 {
-    width: 1000px;
+    width: 700px;
     height: auto;
     position: absolute;
     left: 400px;
@@ -60,6 +60,20 @@ body{
     position:absolute;
     left: 100px;
     top: 100px;
+}
+
+.hidden-text{
+    display:none;
+    position: absolute;
+    
+    color: white;
+}
+
+
+.tcloud:hover .hidden-text{
+   display:block;
+   
+    
 }
 
 .cloud2{
@@ -164,7 +178,48 @@ body{
     bottom: 2200px;
 }
 
+.cloud19{
+    position:absolute;
+    left:2000px;
+    bottom: 2200px;
+}
 
+.cloud20{
+    position:absolute;
+    left:1400px;
+    bottom: 2700px;
+}
+
+.cloud21{
+    position:absolute;
+    left:600px;
+    bottom: 2700px;
+}
+
+.cloud22{
+    position:absolute;
+    right:1200px;
+    bottom: 0px;
+}
+
+.cloud23{
+    position:absolute;
+    right:1800px;
+    top: 600px;
+}
+
+.cloud24{
+    position:absolute;
+    right: 500px;
+    bottom: 1000px;
+}
+
+
+.cloud25{
+    position:absolute;
+    right:700px;
+    top:900px;
+}
 
 
 /* .reveal{
