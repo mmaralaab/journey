@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #4a85f9;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background-repeat: repeat-x;
+  background-position-y: bottom;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.wave4 {
+  bottom: 60px;
+  background-image:
+    radial-gradient(ellipse 420px 130px at 50% 100%, #6c96ff 99%, transparent 100%),
+    linear-gradient(#a9c3fb, #a9c3fb);
+  background-size: 700px 100%, 100% 50px;
+  animation-name: wave4;
+  animation-duration: 40s;
+}
+
+@keyframes wave4 {
+  0% {
+    background-position-x: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+  100% {
+    background-position-x: -700px;
+    transform: translateY(0);
+  }
+}
+
+.wave3 {
+  bottom: 40px;
+  background-image:
+    radial-gradient(ellipse 400px 130px at 50% 100%, #a6bfff 99%, transparent 100%),
+    linear-gradient(#cfdcfa, #cfdcfa);
+  background-size: 640px 100%, 100% 50px;
+  animation-name: wave3;
+  animation-duration: 30s;
+}
+
+@keyframes wave3 {
+  0% {
+    background-position-x: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    background-position-x: 640px;
+    transform: translateY(0);
+  }
+}
+
+.wave2 {
+  bottom: 20px;
+  background-image:
+    radial-gradient(ellipse 380px 120px at 50% 100%,rgb(201, 217, 255)f 99%, transparent 100%),
+    linear-gradient(#e8effd, #e8effd);
+  background-size: 600px 100%, 100% 50px;
+  animation-name: wave2;
+  animation-duration: 22s;
+}
+
+@keyframes wave2 {
+  0% {
+    background-position-x: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    background-position-x: -600px;
+    transform: translateY(0);
+  }
+}
+
+.wave1 {
+  bottom: 0;
+  height: 180px;
+  background-image:
+    radial-gradient(ellipse 560px 110px at 50% 100%, #d8e4ff 99%, transparent 100%),
+    linear-gradient(#ffffff, #ffffff);
+  background-size: 900px 100%, 100% 50px;
+  animation-name: wave1;
+  animation-duration: 18s;
+}
+
+@keyframes wave1 {
+  0% {
+    background-position-x: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    background-position-x: 900px;
+    transform: translateY(0);
+  }
+}

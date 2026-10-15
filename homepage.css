@@ -60,6 +60,12 @@ h1 {
     top: 200px;
 }
 
+.w6{
+    position: absolute;
+    right: 500px;
+    top: 900px;
+}
+
 .image.link {
     display: flex; 
     justify-content: flex-end;
