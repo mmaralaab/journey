@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+
+
+:root {
+  --table: #BDBBB5;
+  --fg: #2A2825;
+  --muted: #3F3C37;
+  --shade: rgba(38, 40, 64, .34);
+  --paper: #F8C32C;
+  --paper-2: #F1B21B;
+  --paper-3: #E8A310;
+  --ink: #D95F1B;
+  --cream: #FFF8EC;
+  --btn: #B8460F;
+  --btn-fg: #FFF8EC;
+  --field: #F4F2EE;
+  --field-fg: #2A2825;
+  --field-line: #8F8B83;
+  --display: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --table: #2B2B2E; --fg: #F2EFE9; --muted: #C4BFB5; --shade: rgba(0, 0, 0, .42);
+    --btn: #F08A3E; --btn-fg: #2A1608; --field: #3A3A3E; --field-fg: #F2EFE9; --field-line: #77747C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --table: #2B2B2E; --fg: #F2EFE9; --muted: #C4BFB5; --shade: rgba(0, 0, 0, .42);
+  --btn: #F08A3E; --btn-fg: #2A1608; --field: #3A3A3E; --field-fg: #F2EFE9; --field-line: #77747C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--table);
+  color: var(--fg);
+  font-family: var(--text);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.desk {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .45 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* window light: a soft diagonal shadow falling across the top-left of the desk and cards */
+.desk::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(118deg, var(--shade) 0%, var(--shade) 20%, transparent 38%);
+  mix-blend-mode: multiply;
+}
+.wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-block: 36px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+header { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 3; }
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(40px, 8vw, 54px);
+  line-height: 1;
+  text-wrap: balance;
+}
+.hint { margin: 0; color: var(--muted); max-width: 52ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: flex-end; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label {
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.field input {
+  font: 500 15px var(--text);
+  width: 170px; max-width: 100%;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--field-line);
+  background: var(--field);
+  color: var(--field-fg);
+}
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  font: 600 14px var(--text);
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: var(--btn);
+  color: var(--btn-fg);
+}
+.btn.alt { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--fg); }
+.btn:hover { filter: brightness(1.08); }
+:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+
+.stage { display: flex; flex-direction: column; gap: 40px; padding-block: 8px 0; }
+
+/* paper cards */
+.card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 5.5% 4% 4%;
+  border-radius: 14px;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .33 0 0 0 0 0 .22 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .08), 0 14px 20px -10px rgba(60, 40, 0, .45);
+}
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 14px;
+  box-shadow: 0 8px 14px -8px rgba(60, 40, 0, .4);
+}
+.card::before { background: var(--paper-2); transform: translate(2.2%, 3.5%) rotate(1.2deg); }
+.card::after { background: var(--paper-3); transform: translate(3.6%, 6%) rotate(2.4deg); z-index: -2; }
+.card.big { transform: rotate(-.6deg); }
+.card.small { width: 76%; transform: rotate(-2deg); margin-left: 2%; }
+
+.edge {
+  position: absolute;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(14px, 2.6vw, 20px);
+  color: var(--ink);
+  opacity: .85;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.edge.e1 { left: 5%; top: 3.5%; }
+.edge.e2 { right: 6%; top: 9%; transform: rotate(7deg); }
+.edge.e3 { left: 9%; bottom: 6%; transform: rotate(-5deg); }
+.edge.e4 { right: 8%; bottom: 3%; transform: rotate(3deg); }
+.spark { position: absolute; width: 10px; height: 10px; fill: var(--ink); opacity: .8; pointer-events: none; }
+
+.scene { display: block; width: 100%; height: auto; overflow: visible; cursor: pointer; border-radius: 10px; }
+
+/* scene text */
+.scene .note-text text {
+  font-family: var(--display);
+  font-weight: 700;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+
+/* motion: slice, note, cut faces */
+.scene .slice { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .9s cubic-bezier(.3, 1.25, .45, 1); }
+.card.open .scene .slice { transform: translate(250px, 24px) rotate(8deg); }
+.scene .note { transform-box: fill-box; transform-origin: center; transform: translate(-80px, 0) rotate(-4deg); opacity: 0; transition: transform .8s .12s cubic-bezier(.3, 1.2, .45, 1), opacity .25s .1s; }
+.card.open .scene .note { transform: translate(0, 0) rotate(-4deg); opacity: 1; }
+.scene .face { opacity: 0; transition: opacity .25s .05s; }
+.card.open .scene .face { opacity: 1; }
+
+/* flames */
+.flame { cursor: pointer; }
+.flame .fl { transform-box: fill-box; transform-origin: 50% 100%; animation: flick 1.5s ease-in-out infinite alternate; }
+.flame .glow { transition: opacity .3s; }
+.flame .fl { transition: opacity .25s, transform .25s; }
+.flame.out .fl { animation: none; opacity: 0; transform: scale(.1); }
+.flame.out .glow { opacity: 0; }
+.flame .smoke { opacity: 0; }
+.flame.out .smoke { animation: puff 1.6s ease-out forwards; }
+@keyframes flick { from { transform: scale(1, .92) rotate(-3deg); } to { transform: scale(.96, 1.08) rotate(3deg); } }
+@keyframes puff { 0% { opacity: .75; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-12px); } }
+
+.status { margin: 0; text-align: center; font-weight: 500; color: var(--muted); min-height: 1.5em; }
+.credit { margin: 0; text-align: center; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 520px) {
+  .card.small { width: 92%; }
+  .field input { width: 100%; }
+  .field { flex: 1 1 140px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene .slice, .scene .note, .scene .face, .flame .fl, .flame .glow { transition: none; }
+  .flame .fl { animation: none; }
+  .flame.out .smoke { animation: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="stripe" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="10" height="10" fill="#F6AE55"/>
+      <rect width="10" height="4" fill="#FFD9A0"/>
+    </pattern>
+
+    <!-- wedge removed from the cake: top vertex at the cake's centre, cut planes at 30 and 70 degrees -->
+    <mask id="wedgeOut" maskUnits="userSpaceOnUse" x="-20" y="-20" width="340" height="320">
+      <rect x="-20" y="-20" width="340" height="320" fill="#fff"/>
+      <polygon points="150,70 271.2,94 271.2,270 197.9,270 197.9,115.1" fill="#000"/>
+    </mask>
+    <clipPath id="wedgeIn"><polygon points="150,70 271.2,94 271.2,270 197.9,270 197.9,115.1"/></clipPath>
+
+    <!-- whole cake, local coordinates 0..300 by 0..240 -->
+    <g id="cake" stroke-linejoin="round">
+      <path d="M10,70 V172 A140,48 0 0 0 290,172 V70 Z" fill="#F7B561" stroke="#E0705E" stroke-width="2"/>
+      <path d="M10,128 A140,48 0 0 0 290,128" fill="none" stroke="#FBC9B8" stroke-width="7"/>
+      <ellipse cx="150" cy="88" rx="140" ry="48" fill="#F29B8C" stroke="#E0705E" stroke-width="2"/>
+      <g fill="#F29B8C" stroke="#E0705E" stroke-width="1.6">
+        <circle cx="40" cy="118" r="7"/><circle cx="72" cy="128" r="8"/><circle cx="104" cy="133" r="7"/>
+        <circle cx="136" cy="136" r="8"/><circle cx="168" cy="136" r="7"/><circle cx="198" cy="133" r="8"/>
+        <circle cx="226" cy="128" r="7"/><circle cx="252" cy="121" r="8"/>
+      </g>
+      <ellipse cx="150" cy="70" rx="140" ry="48" fill="#FAC1B1" stroke="#E0705E" stroke-width="2"/>
+      <ellipse cx="150" cy="72" rx="118" ry="38" fill="none" stroke="#F6A898" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <g fill="#FFF3E8" stroke="#E0705E" stroke-width="1.6">
+        <circle cx="28" cy="195.6" r="15"/><circle cx="62" cy="209.3" r="15"/><circle cx="96" cy="216.3" r="15"/>
+        <circle cx="130" cy="219.5" r="15"/><circle cx="164" cy="219.8" r="15"/><circle cx="198" cy="217.1" r="15"/>
+        <circle cx="232" cy="210.9" r="15"/><circle cx="266" cy="198.8" r="15"/>
+      </g>
+      <g fill="#FFF3E8">
+        <circle cx="52" cy="118" r="2"/><circle cx="90" cy="124" r="2"/><circle cx="150" cy="130" r="2"/><circle cx="212" cy="122" r="2"/>
+      </g>
+    </g>
+
+    <g id="candle">
+      <rect x="-5" y="-30" width="10" height="30" rx="2.5" fill="url(#stripe)" stroke="#D9783C" stroke-width="1.5"/>
+      <path d="M0,-30 v-4" stroke="#7A4A2A" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <g id="berry">
+      <ellipse cx="0" cy="12" rx="13" ry="4.5" fill="#FDE3DA" stroke="#E0705E" stroke-width="1.2"/>
+      <path d="M-14,5 C-14,-9 -7,-15 0,-15 C7,-15 14,-9 14,5 C14,12 7,14 0,14 C-7,14 -14,12 -14,5Z" fill="#E4556A" stroke="#C73A52" stroke-width="1.6"/>
+      <ellipse cx="-5" cy="-4" rx="4" ry="5.5" fill="#FF9FB0" transform="rotate(-20 -5 -4)"/>
+      <circle cx="6" cy="1" r="1.2" fill="#C73A52"/><circle cx="3" cy="7" r="1.2" fill="#C73A52"/><circle cx="8" cy="7" r="1.2" fill="#C73A52"/>
+    </g>
+
+    <g id="bunny" stroke="#D8C8BA" stroke-width="1">
+      <ellipse cx="-5.5" cy="-33" rx="3.6" ry="9" fill="#FFFDF8" transform="rotate(-8 -5.5 -33)"/>
+      <ellipse cx="5.5" cy="-33" rx="3.6" ry="9" fill="#FFFDF8" transform="rotate(8 5.5 -33)"/>
+      <ellipse cx="-5.5" cy="-33" rx="1.7" ry="6" fill="#F8B7B7" stroke="none" transform="rotate(-8 -5.5 -33)"/>
+      <ellipse cx="5.5" cy="-33" rx="1.7" ry="6" fill="#F8B7B7" stroke="none" transform="rotate(8 5.5 -33)"/>
+      <ellipse cx="0" cy="-8" rx="11" ry="8.5" fill="#FFFDF8"/>
+      <circle cx="0" cy="-20" r="9" fill="#FFFDF8"/>
+      <circle cx="-3.2" cy="-20.5" r="1.1" fill="#5A3A2E" stroke="none"/>
+      <circle cx="3.2" cy="-20.5" r="1.1" fill="#5A3A2E" stroke="none"/>
+      <ellipse cx="0" cy="-17.6" rx="1.3" ry="1" fill="#F29BA0" stroke="none"/>
+      <path d="M-9,-12.5 Q0,-8.5 9,-12.5" stroke="#D7455A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- cut faces are built in script so their layers stay in step -->
+    <g id="faceMain"></g>
+    <g id="faceSlice"></g>
+  </defs>
+</svg>
+
+<div class="desk">
+  <div class="wrap">
+    <header>
+      <h1>Pop-up birthday cake</h1>
+      <p class="hint">Tap the card to cut the cake. Tap a flame to blow it out, or use the buttons.</p>
+      <div class="controls">
+        <div class="btns">
+          <button class="btn" id="cutBtn" type="button">Put the slice back</button>
+          <button class="btn alt" id="blowBtn" type="button">Blow out candles</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="stage" id="stage" aria-label="Birthday cards"></section>
+    <p class="status" id="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+
+  /* ---------- cut faces ---------- */
+  function buildFace(id, c, r, h, dollops, dollopR, shade) {
+    var layers = [[0, .17, '#F9B3A3'], [.17, .5, '#FFC983'], [.5, .6, '#FFE2D2'], [.6, .9, '#FFC983'], [.9, 1, '#FFE2D2']];
+    function p(f, pt) { return pt[0].toFixed(1) + ',' + (pt[1] + f * h).toFixed(1); }
+    var s = '';
+    layers.forEach(function (L) {
+      s += '<polygon points="' + p(L[0], c) + ' ' + p(L[0], r) + ' ' + p(L[1], r) + ' ' + p(L[1], c) + '" fill="' + L[2] + '"/>';
+    });
+    if (shade) s += '<polygon points="' + p(0, c) + ' ' + p(0, r) + ' ' + p(1, r) + ' ' + p(1, c) + '" fill="#B5531E" opacity=".1"/>';
+    s += '<polygon points="' + p(0, c) + ' ' + p(0, r) + ' ' + p(1, r) + ' ' + p(1, c) + '" fill="none" stroke="#E0705E" stroke-width="2" stroke-linejoin="round"/>';
+    dollops.forEach(function (t) {
+      var x = c[0] + (r[0] - c[0]) * t, y = c[1] + h + (r[1] - c[1]) * t;
+      s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + dollopR + '" fill="#FFF3E8" stroke="#E0705E" stroke-width="1.6"/>';
+    });
+    document.getElementById(id).innerHTML = s;
+  }
+  buildFace('faceMain', [150, 70], [271.2, 94], 102, [.45, .68, .9], 12, false);
+  document.getElementById('faceMain').setAttribute('clip-path', 'url(#wedgeIn)');
+  buildFace('faceSlice', [150, 70], [197.9, 115.1], 102, [.3, .78], 10, true);
+
+  /* ---------- scene markup ---------- */
+  var mainCandles = [[56, 74], [100, 50], [216, 48], [262, 74]];
+  var mainBerries = [[94, 88], [140, 98], [236, 66]];
+  var sliceCandle = [254, 98];
+
+  function candleMarkup(x, y, i) {
+    return '<use href="#candle" x="' + x + '" y="' + y + '"/>' +
+      '<g class="flame" transform="translate(' + x + ',' + (y - 34) + ')">' +
+      '<circle class="glow" r="11" cy="-7" fill="#FFD66B" opacity=".35"/>' +
+      '<g class="fl" style="animation-delay:-' + ((i * 0.37) % 1.5).toFixed(2) + 's">' +
+      '<path d="M0,-15 C5,-9 6,-4 0,2 C-6,-4 -5,-9 0,-15Z" fill="#FFBE2E"/>' +
+      '<path d="M0,-8 C3,-5 3.4,-2 0,.5 C-3.4,-2 -3,-5 0,-8Z" fill="#FFF1A8"/></g>' +
+      '<path class="smoke" d="M0,-4 C-5,-12 5,-16 0,-26" fill="none" stroke="#8C867C" stroke-width="2" stroke-linecap="round"/>' +
+      '<circle class="hit" r="14" cy="-7" fill="transparent"/></g>';
+  }
+
+  var uid = 0;
+  function sceneMarkup() {
+    var s = '';
+    s += '<g transform="translate(18,36)">';
+    // main cake
+    s += '<ellipse cx="150" cy="226" rx="160" ry="20" fill="#5A3C00" opacity=".18"/>';
+    s += '<use href="#cake" mask="url(#wedgeOut)"/>';
+    s += '<g class="face"><use href="#faceMain"/></g>';
+    mainBerries.forEach(function (b) { s += '<use href="#berry" transform="translate(' + b[0] + ',' + b[1] + ')"/>'; });
+    s += '<use href="#bunny" transform="translate(176,66)"/>';
+    mainCandles.forEach(function (c) { s += candleMarkup(c[0], c[1], uid++); });
+    // note
+    s += '<g class="note"><g>' +
+      '<rect x="228" y="104" width="212" height="122" rx="3" fill="#FFF8EC" stroke="#EBD9BF" stroke-width="1.5"/>' +
+      '<rect x="235" y="111" width="198" height="108" rx="2" fill="none" stroke="#F3D9B5" stroke-width="1.2" stroke-dasharray="3 5"/>' +
+      '<path d="M241,126 c-4,-5 -11,0 -6,6 l6,6 l6,-6 c5,-6 -2,-11 -6,-6z" fill="#F7A27B" transform="translate(0,-2) scale(.9)"/>' +
+      '<g class="note-text"></g></g></g>';
+    // slice
+    s += '<g class="slice">';
+    s += '<ellipse cx="215" cy="226" rx="82" ry="14" fill="#5A3C00" opacity=".18"/>';
+    s += '<g class="face"><use href="#faceSlice"/></g>';
+    s += '<use href="#cake" clip-path="url(#wedgeIn)"/>';
+    s += '<use href="#berry" transform="translate(226,98) scale(.9)"/>';
+    s += candleMarkup(sliceCandle[0], sliceCandle[1], uid++);
+    s += '</g>';
+    s += '</g>';
+    return s;
+  }
+
+  /* ---------- note text ---------- */
+  function wrap(text, max) {
+    var words = text.trim().split(/\s+/).filter(Boolean), lines = [], cur = '';
+    words.forEach(function (w) {
+      var t = (cur + ' ' + w).trim();
+      if (t.length <= max || !cur) cur = t; else { lines.push(cur); cur = w; }
+    });
+    if (cur) lines.push(cur);
+    return lines.slice(0, 3);
+  }
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function renderNote(card) {
+    var lines = card.getLines();
+    var longest = Math.max.apply(null, lines.map(function (l) { return l.length; }));
+    var fs = Math.max(18, Math.min(36, 36 * 10 / Math.max(10, longest)));
+    var cx = 312, cy = 168, lh = fs * 1.0, out = '';
+    lines.forEach(function (l, i) {
+      var y = cy + (i - (lines.length - 1) / 2) * lh + fs * 0.3;
+      out += '<text x="' + cx + '" y="' + y.toFixed(1) + '" font-size="' + fs.toFixed(1) + '">' + esc(l) + '</text>';
+    });
+    card.el.querySelector('.note-text').innerHTML = out;
+  }
+
+  /* ---------- cards ---------- */
+  var sparks = [[3, 22, 9, 0], [8, 62, 8, 20], [4, 88, 10, 0], [18, 96, 8, 0], [44, 97, 9, 0], [70, 96, 8, 0], [94, 70, 10, 0],
+    [96, 38, 8, 0], [90, 6, 9, 0], [62, 3, 8, 0], [34, 5, 9, 0], [22, 12, 7, 0], [97, 92, 9, 0], [55, 94, 7, 0]];
+
+  function makeCard(cls, getLines, label) {
+    var el = document.createElement('article');
+    el.className = 'card ' + cls + ' open';
+    var html = '<span class="edge e1" aria-hidden="true">Happy Birthday</span>' +
+      '<span class="edge e2" aria-hidden="true">Happy Birthday</span>' +
+      '<span class="edge e3" aria-hidden="true">Happy Birthday</span>' +
+      '<span class="edge e4" aria-hidden="true">Happy Birthday</span>';
+    sparks.forEach(function (sp, i) {
+      if (cls === 'small' && i % 2) return;
+      html += '<svg class="spark" viewBox="0 0 10 10" aria-hidden="true" style="left:' + sp[0] + '%;top:' + sp[1] + '%;width:' + sp[2] + 'px;height:' + sp[2] + 'px"><path d="M5 0 L6.2 3.8 L10 5 L6.2 6.2 L5 10 L3.8 6.2 L0 5 L3.8 3.8Z"/></svg>';
+    });
+    html += '<svg class="scene" viewBox="0 20 590 290" role="button" tabindex="0" aria-pressed="true" aria-label="' + label + '">' + sceneMarkup() + '</svg>';
+    el.innerHTML = html;
+    var card = { el: el, getLines: getLines, svg: el.querySelector('.scene') };
+    renderNote(card);
+    return card;
+  }
+
+  var cards = [
+    makeCard('big', function () {
+      return ['Happy', 'Birthday,', 'Suvdaa!'];
+    }, 'Birthday card. Press to cut the cake or put the slice back.')
+  ];
+  var stage = document.getElementById('stage');
+  cards.forEach(function (c) { stage.appendChild(c.el); });
+
+  var cutBtn = document.getElementById('cutBtn');
+  var blowBtn = document.getElementById('blowBtn');
+  var status = document.getElementById('status');
+
+  function setOpen(card, open) {
+    card.el.classList.toggle('open', open);
+    card.svg.setAttribute('aria-pressed', open ? 'true' : 'false');
+    syncUI();
+  }
+  function flames() { return Array.prototype.slice.call(document.querySelectorAll('.flame')); }
+  function lit() { return flames().filter(function (f) { return !f.classList.contains('out'); }).length; }
+  function syncUI() {
+    var allOpen = cards.every(function (c) { return c.el.classList.contains('open'); });
+    cutBtn.textContent = allOpen ? 'Put the slice back' : 'Cut the cake';
+    var n = lit(), total = flames().length;
+    blowBtn.textContent = n === 0 ? 'Relight candles' : 'Blow out candles';
+    status.textContent = n === 0 ? 'All out. Make a wish.' : n + ' of ' + total + ' candles lit';
+  }
+
+  cards.forEach(function (card) {
+    card.svg.addEventListener('click', function (e) {
+      var fl = e.target.closest ? e.target.closest('.flame') : null;
+      if (fl) { fl.classList.toggle('out'); syncUI(); return; }
+      setOpen(card, !card.el.classList.contains('open'));
+    });
+    card.svg.addEventListener('keydown', function (e) {
+      if (e.target !== card.svg) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(card, !card.el.classList.contains('open')); }
+    });
+  });
+
+  cutBtn.addEventListener('click', function () {
+    var anyClosed = cards.some(function (c) { return !c.el.classList.contains('open'); });
+    cards.forEach(function (c) { setOpen(c, anyClosed); });
+  });
+  blowBtn.addEventListener('click', function () {
+    var fs = flames();
+    if (lit() === 0) { fs.forEach(function (f) { f.classList.remove('out'); }); syncUI(); return; }
+    fs.filter(function (f) { return !f.classList.contains('out'); }).forEach(function (f, i) {
+      setTimeout(function () { f.classList.add('out'); syncUI(); }, i * 130);
+    });
+  });
+  syncUI();
+})();
+</script>
+
+</html>
