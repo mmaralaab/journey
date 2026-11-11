@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width:100%;
+}
+
+body{
+    margin:0;
+}
+
+.buttons{
+    position:fixed;
+    top:10px;
+    left:10px;
+}
+.container {
+    background:lightblue;
+    height: 100vh;
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.container.dark{
+    background:rgb(25, 29, 33);
+}
+
+.box {
+    background:lightslategray;
+    width: 100px;
+    height: 100px;
+    animation: spin 5s infinite linear;
+    animation-play-state: paused;
+    border: 1px solid;
+}
+
+.box.dark{ 
+    background: rgb(71, 83, 93);
+}
+
+.box.spin {
+   animation-play-state: running;
+}
+
+@keyframes spin{
+    0% {
+        rotate:0;
+    }
+    100%{
+        rotate:360deg;
+    }
+}
+
+.sun{
+    width:200px;
+    position:fixed;
+    bottom:20px;
+    right:10px;
+    display:none;
+}
+
+.sun.reveal{
+    display:block;
+}
+
+.draggable{
+    cursor:grab;
+}

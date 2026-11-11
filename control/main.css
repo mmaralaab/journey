@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width:100%;
+}
+
+/* body{
+    background-image: url("images/beach.jpeg");
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+body{
+margin:0;
+}
+
+.beach{
+position:relative;
+height:100vh;
+overflow:hidden;
+background-image:url("images/beach.jpeg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.hint {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  margin: 0;
+  padding: 10px 16px;
+  background: white;
+  border-radius: 12px;
+font-family: "Chewy", sans-serif;
+}
+
+.sun{
+width:160px;
+position:absolute;
+top:8%;
+right:12%;
+cursor:pointer;
+animation:sunspin 20s infinite linear;
+}
+@keyframes sunspin{
+0% {
+rotate:0;
+    }
+100%{
+rotate:360deg;
+    }
+}
+
+.item {
+  position: absolute;
+  display: none;
+  cursor: grab;
+  user-select: none;
+
+}
+
+.ball { 
+    width: 160px;  left: 800px; top: 700px;
+    position: absolute;
+    height: auto;
+    cursor: grab;
+    touch-action: none;               
+    user-select: none;
+    filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+    transition: transform 0.15s ease;
+}
+
+.ball.draggable {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+.toy1{
+width:150px;
+left:8%;
+top:70%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.toy2{
+width:120px;
+left:24%;
+top:80%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.toy3{
+width:120px;
+left:38%;
+top:68%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.toy4{
+width:130px;
+left:50%;
+top:82%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.toy5{
+width:140px;
+left:78%;
+top:70%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.toy6{
+width:100px;
+left:88%;
+top:80%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.castle{
+width:170px;
+left:40%;
+top:76%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 6px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.castle.spin{
+rotate:360deg;
+transition:rotate 0.6s;
+}
+
+.umbrella{
+width:200px;
+left:70%;
+top:45%;
+height: auto;
+cursor: grab;
+touch-action: none;               
+user-select: none;
+filter: drop-shadow(0 4px 3px rgb(70 45 10 / 0.3));
+transition: transform 0.15s ease;
+}
+
+.star1{
+left:18%;
+top:84%;
+width:55px;
+
+}
+
+.star2{
+left:50%;
+top:67%;
+width:45px;
+}
+
+.star3{
+left:83%;
+top:86%;
+width:55px;
+}
+
+.crab{
+position:absolute;
+width:80px;
+left:0;
+top:88%;
+animation:crabbob 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes crabbob{
+0% {
+translate:0 0;
+    }
+100%{
+translate:0 -4px;
+    }
+}
