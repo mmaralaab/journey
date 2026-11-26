@@ -1,72 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* one page, no scrolling */
+}
+
 body {
-    /* background-color:#0c0912; */
-     background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgb(95, 15, 111) 100%);
-     background-size:100% 100vh;
-     height:2000px;
-     background-attachment: fixed;
+ height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(241, 225, 154);
+   background-image: url(photos/background.png);
+   background-size: contain, 100%, 100%;
+   background-position: center, center;
+    background-repeat: no-repeat;
 }
 
-.main-title {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-h1 {
-    color: rgb(255, 179, 251, 0.658);
-    /* background: rgba(255, 179, 251, 0.658); */
-    margin: 30px;
-    /* width: 1000px; */
-    padding: 30px;
-    /* border: 5px solid rgb(103, 6, 152); */
-    text-align: left;
-    position: sticky;
-    top: 20px; 
-    left: 30px;
+#toggle {
+  display: none;
 }
 
-.title{
-    position: absolute;
-    top: 50%;
-    right: 300px;
+.closet {
+  position: relative;
+  display: block;
+  height: 95vh;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
 }
 
-.world-image{ 
-    width: 200px; 
-    height: auto;
-    /* border: 5px solid rgb(255, 223, 223) */
+.closet > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
 }
 
-.w1 {
-    position: absolute;
-    top: 200px;
-    right: 100px;
+.open {
+  opacity: 0;
 }
 
-.w2 {
-    position: absolute;
-    top: 600px;
-    right: 850px;
-    
+#toggle:checked ~ .closet .open   { opacity: 1; }
+#toggle:checked ~ .closet .closed { opacity: 0; }
+
+.click-area {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
 }
 
-.w3 {
-    position: absolute; 
-    top: 450px;
-    right: 400px;
 
+.clothes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.w5 {
-    position: absolute;
-    right: 600px;
-    top: 200px;
+.item {
+  position: absolute;
+  inset: 0;
+  transform: none;
+  pointer-events: none;
+  opacity: 0;                      
+  transition: opacity 0.3s ease;  
 }
 
-.w6{
-    position: absolute;
-    right: 500px;
-    top: 900px;
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
 }
 
-.image.link {
-    display: flex; 
-    justify-content: flex-end;
+#toggle:checked ~ .closet .item {
+  opacity: 1;
 }
+
+/* the clickable area is a separate box per item, positioned over the clothing */
+.item::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+#toggle:checked ~ .closet .item::after {
+     pointer-events: auto; 
+     
+}
+
+.c1::after { 
+    /* background-color: rgba(233, 150, 122, 0.608); */
+    top: 36%; 
+    left: 38%; 
+    width: 7%; 
+    height: 15%; }
+
+.c2::after { 
+    /* background-color: rgba(178, 34, 34, 0.641); */
+    top: 36%; 
+    left: 45%; 
+    width: 6%; 
+    height: 31%; }
+
+.c3::after { 
+    /* background-color: rgba(0, 255, 255, 0.568); */
+    top: 36%; 
+    left: 47%; 
+    width: 4%; 
+    height: 14%; }
+
+.c4::after { 
+
+     /* background-color: rgba(213, 1, 255, 0.62); */
+
+    top: 36%; 
+    left: 58%; 
+    width: 5%; 
+    height: 14%; }
+
+.c5::after { 
+    /* background-color: rgba(0, 128, 0, 0.72); */
+    top: 35%; 
+    left: 65%; 
+    width: 8%;
+    height: 14%; }
+
+ .c6::after { 
+    /* background-color: rgba(255, 0, 0, 0.518); */
+    top: 36%; 
+    left: 51%; 
+    width: 8%;
+    height: 20%; }
