@@ -14,7 +14,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(241, 225, 154);
+  background-color: rgb(237, 222, 167);
    background-image: url(photos/background.png);
    background-size: contain, 100%, 100%;
    background-position: center, center;
